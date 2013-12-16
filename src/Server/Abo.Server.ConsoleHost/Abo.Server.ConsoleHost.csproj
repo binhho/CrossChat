@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{046886A3-2182-4BCC-8E7C-1A78A5C856A1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Abo.Server.ConsoleHost</RootNamespace>
+    <AssemblyName>Abo.Server.ConsoleHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\libs\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\EntityFramework.6.0.1-alpha1-20819\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\EntityFramework.6.0.1-alpha1-20819\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Submodules\SuperSocket\Reference\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Abo.Server.Application.DataTransferObjects\Abo.Server.Application.DataTransferObjects.csproj">
+      <Project>{B3FA38D2-EE74-4EEE-BE94-351A0FF3C057}</Project>
+      <Name>Abo.Server.Application.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Abo.Utils\Abo.Utils.csproj">
+      <Project>{be0bed22-5caf-4b11-a3b8-2f9f86a059f4}</Project>
+      <Name>Abo.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\SuperSocket\Common\SuperSocket.Common.Net45.csproj">
+      <Project>{a24f4d38-ba9c-4fd6-95b7-4980de36131a}</Project>
+      <Name>SuperSocket.Common.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\SuperSocket\Dlr\SuperSocket.Dlr.Net45.csproj">
+      <Project>{55baa051-ce62-4d4a-81b6-68b042cc78e9}</Project>
+      <Name>SuperSocket.Dlr.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\SuperSocket\Facility\SuperSocket.Facility.Net45.csproj">
+      <Project>{01987bac-c498-44dd-b274-62ea2506b51d}</Project>
+      <Name>SuperSocket.Facility.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\SuperSocket\SocketBase\SuperSocket.SocketBase.Net45.csproj">
+      <Project>{40b77789-ea11-4c05-8f52-86711d7bcaaf}</Project>
+      <Name>SuperSocket.SocketBase.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Submodules\SuperSocket\SocketEngine\SuperSocket.SocketEngine.Net45.csproj">
+      <Project>{153fef72-191c-43d9-be71-2b351c7ac760}</Project>
+      <Name>SuperSocket.SocketEngine.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abo.Server.Application\Abo.Server.Application.csproj">
+      <Project>{C6099ED1-33AF-4F0C-A9AC-01E1092D30D3}</Project>
+      <Name>Abo.Server.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abo.Server.Domain\Abo.Server.Domain.csproj">
+      <Project>{9BFC0690-D444-4AC9-86C7-C33BE28F8212}</Project>
+      <Name>Abo.Server.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abo.Server.Infrastructure\Abo.Server.Infrastructure.csproj">
+      <Project>{FA4BEF7E-9220-4435-BC8B-F6868AD3E252}</Project>
+      <Name>Abo.Server.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

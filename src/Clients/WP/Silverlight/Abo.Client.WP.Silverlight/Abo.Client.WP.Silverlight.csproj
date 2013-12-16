@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF7CF619-0349-435C-B0E3-D65C3387DF6A}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Abo.Client.WP.Silverlight</RootNamespace>
+    <AssemblyName>Abo.Client.WP.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>ru</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Abo.Client.WP.Silverlight_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Abo.Client.WP.Silverlight.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Server\Abo.Server.Infrastructure\GlobalConfig.cs">
+      <Link>Infrastructure\GlobalConfig.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationModule.cs" />
+    <Compile Include="Assets\AssetsPathes.cs" />
+    <Compile Include="Assets\Flags\Countries.cs" />
+    <Compile Include="Assets\Flags\Countries.Generated.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\CardImageConverter.cs" />
+    <Compile Include="Converters\ElementImageConverter.cs" />
+    <Compile Include="Converters\IdToPhotoUrlConverter.cs" />
+    <Compile Include="Converters\PlayerRoleToColorConverter.cs" />
+    <Compile Include="Converters\PlayerStatusToForegroundConverter.cs" />
+    <Compile Include="Converters\IsCreatureToVisible.cs" />
+    <Compile Include="Converters\CountryNameToFlagUriConverter.cs" />
+    <Compile Include="Infrastructure\DeviceInfo.cs" />
+    <Compile Include="Infrastructure\NotificationService.cs" />
+    <Compile Include="Infrastructure\ProtobufSerializer.cs" />
+    <Compile Include="Infrastructure\SocketStreamTransportResource.cs" />
+    <Compile Include="Infrastructure\Storage.cs" />
+    <Compile Include="Infrastructure\UIDispatcher.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Navigation\AboNavigationManager.cs" />
+    <Compile Include="Notifications\Toast\ToastNotificator.cs" />
+    <Compile Include="Seedwork\Controls\AutoscrolledListBox.cs" />
+    <Compile Include="Seedwork\Controls\ProgressLine.xaml.cs">
+      <DependentUpon>ProgressLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seedwork\Controls\TapGrid.cs" />
+    <Compile Include="Seedwork\Controls\TiltGrid.cs" />
+    <Compile Include="Seedwork\Controls\PivotItemEx.cs" />
+    <Compile Include="Seedwork\Controls\ValidatableTextBox.xaml.cs">
+      <DependentUpon>ValidatableTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seedwork\Controls\WebImage.xaml.cs">
+      <DependentUpon>WebImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seedwork\Converters\StringLengthToValueConverter.cs" />
+    <Compile Include="Seedwork\Converters\NullToValueConverter.cs" />
+    <Compile Include="Seedwork\Converters\ZeroToValueConverter.cs" />
+    <Compile Include="Seedwork\Extensions\TiltEffectExtension.cs" />
+    <Compile Include="Seedwork\Extensions\VisualStateManagerExtensions.cs" />
+    <Compile Include="Seedwork\Extensions\VisualTreeHelpers.cs" />
+    <Compile Include="Seedwork\Navigation\PopupController.cs" />
+    <Compile Include="Seedwork\Notifications\ToastPromtsHostControl.xaml.cs">
+      <DependentUpon>ToastPromtsHostControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Seedwork\LayerModule.cs" />
+    <Compile Include="Seedwork\Converters\BooleanToValueConverter.cs" />
+    <Compile Include="Seedwork\ServiceLocator.cs" />
+    <Compile Include="ViewModels\Battlefield\BattlefieldPlayerViewModel.cs" />
+    <Compile Include="ViewModels\Battlefield\BattlefieldViewModel.cs" />
+    <Compile Include="ViewModels\CardsCatalogViewModel.cs" />
+    <Compile Include="ViewModels\FrameViewModel.cs" />
+    <Compile Include="ViewModels\InputTextViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainMenuViewModel.cs" />
+    <Compile Include="ViewModels\Messages\BanNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Messages\DevoiceNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Messages\GrantedModershipNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Messages\MessageFactory.cs" />
+    <Compile Include="ViewModels\Messages\MessageViewModel.cs" />
+    <Compile Include="ViewModels\Messages\RemovedModershipNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Messages\TextMessageViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\BlacklistViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\ChatOnlineHubViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\FriendsViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\AggregatedOnlineHubViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\HallOfFameViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\OnlineProfileViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\SearchPlayersViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\OnlineHubViewModelBase.cs" />
+    <Compile Include="ViewModels\OnlineHub\Blocks\PlayersOnlineHubViewModel.cs" />
+    <Compile Include="ViewModels\OnlineHub\PlayerViewModel.cs" />
+    <Compile Include="ViewModels\OnlinePlayerDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PhotoSelectorViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\SinglePlayerViewModel.cs" />
+    <Compile Include="Views\Battlefield\BattlefieldView.xaml.cs">
+      <DependentUpon>BattlefieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Battlefield\ExpandedCardsBookControl.xaml.cs">
+      <DependentUpon>ExpandedCardsBookControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Battlefield\CollapsedCardsBookControl.xaml.cs">
+      <DependentUpon>CollapsedCardsBookControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Battlefield\ElementInfoControl.xaml.cs">
+      <DependentUpon>ElementInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Battlefield\FieldControl.xaml.cs">
+      <DependentUpon>FieldControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Battlefield\PlayerFaceControl.xaml.cs">
+      <DependentUpon>PlayerFaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsCatalogPage.xaml.cs">
+      <DependentUpon>CardsCatalogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignTimeViewModels\DT_BattlefieldViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_BfPlayerViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_BattlefieldPlayerViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_ElementInfoViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_FieldViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_OnlineHubViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_PhotoSelectionViewModel.cs" />
+    <Compile Include="Views\DesignTimeViewModels\DT_PlayerDetailsViewModel.cs" />
+    <Compile Include="Views\DuelPage.xaml.cs">
+      <DependentUpon>DuelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InputTextView.xaml.cs">
+      <DependentUpon>InputTextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Seedwork\Navigation\ViewModelsRegistry.cs" />
+    <Compile Include="Seedwork\Navigation\NavigationBuilder.cs" />
+    <Compile Include="Seedwork\Navigation\NavigationRegisteredViewModel.cs" />
+    <Compile Include="Seedwork\Navigation\INavigatableViewModel.cs" />
+    <Compile Include="Seedwork\Navigation\NavigatablePage.cs" />
+    <Compile Include="Seedwork\Navigation\NavigationManagerBase.cs" />
+    <Compile Include="Views\OnlineHubPage.xaml.cs">
+      <DependentUpon>OnlineHubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OnlinePlayerDetails.xaml.cs">
+      <DependentUpon>OnlinePlayerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PhotoSelectionView.xaml.cs">
+      <DependentUpon>PhotoSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SinglePlayerOptionsPage.xaml.cs">
+      <DependentUpon>SinglePlayerOptionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashscreenPage.xaml.cs">
+      <DependentUpon>SplashscreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TextDecorations\DecoratorsRegistry.cs" />
+    <Compile Include="Views\TextDecorations\Decorators\DefaultDecorator.cs" />
+    <Compile Include="Views\TextDecorations\Decorators\HyperlinkDecorator.cs" />
+    <Compile Include="Views\TextDecorations\Decorators\NickDecorator.cs" />
+    <Compile Include="Views\TextDecorations\TextBlockExtensions.cs" />
+    <Compile Include="Views\TextDecorations\TextDecorationStyleNames.cs" />
+    <Compile Include="Views\TextDecorations\TextDecorator.cs" />
+    <Compile Include="Views\TextDecorations\TextPresenter.cs" />
+    <Compile Include="Views\TextDecorations\TextPresenterControl.cs" />
+    <Compile Include="Views\TextDecorations\Decorators\TimestampDecorator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Converters\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seedwork\Controls\ProgressLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seedwork\Controls\ValidatableTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seedwork\Controls\WebImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seedwork\Notifications\ToastPromtsHostControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Battlefield\BattlefieldView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Battlefield\ExpandedCardsBookControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Battlefield\CollapsedCardsBookControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Battlefield\ElementInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Battlefield\FieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Battlefield\PlayerFaceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsCatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DuelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InputTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OnlineHubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OnlinePlayerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhotoSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SinglePlayerOptionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SplashscreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Cards\Air\AirElemental.JPG" />
+    <Resource Include="Assets\Cards\Air\Angel.JPG" />
+    <Resource Include="Assets\Cards\Air\FaerieApprentice.JPG" />
+    <Resource Include="Assets\Cards\Air\FaerieSage.JPG" />
+    <Resource Include="Assets\Cards\Air\Griffin.JPG" />
+    <Resource Include="Assets\Cards\Air\LightningCloud.JPG" />
+    <Resource Include="Assets\Cards\Air\Phoenix.JPG" />
+    <Resource Include="Assets\Cards\Air\Spells\CalltoThunder.png" />
+    <Resource Include="Assets\Cards\Air\Spells\ChainLightning.png" />
+    <Resource Include="Assets\Cards\Air\Spells\LightningBolt.png" />
+    <Resource Include="Assets\Cards\Air\Spells\locked.png" />
+    <Resource Include="Assets\Cards\Air\Spells\Tornado.png" />
+    <Resource Include="Assets\Cards\Air\Titan.JPG" />
+    <Resource Include="Assets\Cards\Air\WallOfLightnings.JPG" />
+    <Resource Include="Assets\Cards\Beast\AncientDragon.JPG" />
+    <Resource Include="Assets\Cards\Beast\Basilisk.JPG" />
+    <Resource Include="Assets\Cards\Beast\DeathFalcon.JPG" />
+    <Resource Include="Assets\Cards\Beast\EnergyBeast.JPG" />
+    <Resource Include="Assets\Cards\Beast\MagicHamster.JPG" />
+    <Resource Include="Assets\Cards\Beast\Scorpion.JPG" />
+    <Resource Include="Assets\Cards\Beast\Spells\BreatheFire.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\Enrage.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\Gaze.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\MoveFalcon.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\NaturalHealing.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\Poison.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\PumpEnergy.png" />
+    <Resource Include="Assets\Cards\Beast\Spells\Trumpet.png" />
+    <Resource Include="Assets\Cards\Beast\WhiteElephant.JPG" />
+    <Resource Include="Assets\Cards\Beast\Wolverine.JPG" />
+    <Resource Include="Assets\Cards\Blood\Chastiser.jpg" />
+    <Resource Include="Assets\Cards\Blood\DevotedServant.jpg" />
+    <Resource Include="Assets\Cards\Blood\Ghoul.jpg" />
+    <Resource Include="Assets\Cards\Blood\Initiate.jpg" />
+    <Resource Include="Assets\Cards\Blood\Justicar.jpg" />
+    <Resource Include="Assets\Cards\Blood\MagisterofBlood.jpg" />
+    <Resource Include="Assets\Cards\Blood\Spells\BloodBoil.png" />
+    <Resource Include="Assets\Cards\Blood\VampireElder.jpg" />
+    <Resource Include="Assets\Cards\Blood\VampireMystic.jpg" />
+    <Resource Include="Assets\Cards\Chaos\InsanianBerserker.JPG" />
+    <Resource Include="Assets\Cards\Chaos\InsanianCatapult.JPG" />
+    <Resource Include="Assets\Cards\Chaos\InsanianKing.JPG" />
+    <Resource Include="Assets\Cards\Chaos\InsanianLord.JPG" />
+    <Resource Include="Assets\Cards\Chaos\InsanianPeacekeeper.JPG" />
+    <Resource Include="Assets\Cards\Chaos\InsanianShaman.JPG" />
+    <Resource Include="Assets\Cards\Chaos\Soldier.JPG" />
+    <Resource Include="Assets\Cards\Chaos\Spells\ChaoticWave.png" />
+    <Resource Include="Assets\Cards\Chaos\Spells\DoomBolt.png" />
+    <Resource Include="Assets\Cards\Control\AncientGiant.JPG" />
+    <Resource Include="Assets\Cards\Control\AncientHorror.JPG" />
+    <Resource Include="Assets\Cards\Control\AncientWitch.JPG" />
+    <Resource Include="Assets\Cards\Control\DampingTower.JPG" />
+    <Resource Include="Assets\Cards\Control\GoblinShaman.JPG" />
+    <Resource Include="Assets\Cards\Control\MindStealer.JPG" />
+    <Resource Include="Assets\Cards\Control\Spells\PoisonousCloud.png" />
+    <Resource Include="Assets\Cards\Control\Spells\Weakness.png" />
+    <Resource Include="Assets\Cards\Death\AncientWitch.JPG" />
+    <Resource Include="Assets\Cards\Death\Banshee.JPG" />
+    <Resource Include="Assets\Cards\Death\EmissaryofDorlak.JPG" />
+    <Resource Include="Assets\Cards\Death\InsanianLord.JPG" />
+    <Resource Include="Assets\Cards\Death\KeeperofDeath.JPG" />
+    <Resource Include="Assets\Cards\Death\MasterLich.jpg" />
+    <Resource Include="Assets\Cards\Death\SpectralAssassin.JPG" />
+    <Resource Include="Assets\Cards\Death\Spells\BloodRitual.png" />
+    <Resource Include="Assets\Cards\Death\Spells\CursedFog.png" />
+    <Resource Include="Assets\Cards\Death\Spells\DarkRitual.png" />
+    <Resource Include="Assets\Cards\Death\Spells\DrainSouls.png" />
+    <Resource Include="Assets\Cards\Death\Spells\EmissaryofDorlakSpell.png" />
+    <Resource Include="Assets\Cards\Death\Spells\locked.png" />
+    <Resource Include="Assets\Cards\Death\Vampire.JPG" />
+    <Resource Include="Assets\Cards\Death\Wolverine.JPG" />
+    <Resource Include="Assets\Cards\Demonic\DemonApostate.JPG" />
+    <Resource Include="Assets\Cards\Demonic\DemonQuartermaster.JPG" />
+    <Resource Include="Assets\Cards\Demonic\EnragedQuartermaster.JPG" />
+    <Resource Include="Assets\Cards\Demonic\ErgoDemon.JPG" />
+    <Resource Include="Assets\Cards\Demonic\GreaterDemon.JPG" />
+    <Resource Include="Assets\Cards\Demonic\Lemure.JPG" />
+    <Resource Include="Assets\Cards\Demonic\ScrambledLemure.JPG" />
+    <Resource Include="Assets\Cards\Demonic\Spells\Explosion.png" />
+    <Resource Include="Assets\Cards\Demonic\Spells\Hellfire.png" />
+    <Resource Include="Assets\Cards\Demonic\Spells\PowerChains.png" />
+    <Resource Include="Assets\Cards\Demonic\ThreeHeadedDemon.JPG" />
+    <Resource Include="Assets\Cards\Earth\EarthElemental.JPG" />
+    <Resource Include="Assets\Cards\Earth\elfHermit.JPG" />
+    <Resource Include="Assets\Cards\Earth\ElvenHealer.JPG" />
+    <Resource Include="Assets\Cards\Earth\ForestSpider.JPG" />
+    <Resource Include="Assets\Cards\Earth\ForestSprite.JPG" />
+    <Resource Include="Assets\Cards\Earth\GiantSpider.JPG" />
+    <Resource Include="Assets\Cards\Earth\Hydra.JPG" />
+    <Resource Include="Assets\Cards\Earth\MasterHealer.JPG" />
+    <Resource Include="Assets\Cards\Earth\Spells\locked.png" />
+    <Resource Include="Assets\Cards\Earth\Spells\NaturalFury.png" />
+    <Resource Include="Assets\Cards\Earth\Spells\NatureRitual.png" />
+    <Resource Include="Assets\Cards\Earth\Spells\Rejuvenation.png" />
+    <Resource Include="Assets\Cards\Earth\Spells\StoneRain.png" />
+    <Resource Include="Assets\Cards\Earth\Troll.JPG" />
+    <Resource Include="Assets\Cards\Fire\Bargul.JPG" />
+    <Resource Include="Assets\Cards\Fire\Dragon.JPG" />
+    <Resource Include="Assets\Cards\Fire\FireDrake.JPG" />
+    <Resource Include="Assets\Cards\Fire\FireElemental.JPG" />
+    <Resource Include="Assets\Cards\Fire\GoblinBerserker.JPG" />
+    <Resource Include="Assets\Cards\Fire\MinotaurCommander.JPG" />
+    <Resource Include="Assets\Cards\Fire\OrcChieftain.JPG" />
+    <Resource Include="Assets\Cards\Fire\PriestOfFire.JPG" />
+    <Resource Include="Assets\Cards\Fire\Spells\Armageddon.png" />
+    <Resource Include="Assets\Cards\Fire\Spells\FlameWave.png" />
+    <Resource Include="Assets\Cards\Fire\Spells\Inferno.png" />
+    <Resource Include="Assets\Cards\Fire\Spells\locked.png" />
+    <Resource Include="Assets\Cards\Fire\WallofFire.JPG" />
+    <Resource Include="Assets\Cards\Forest\AngryAngryBear.jpg" />
+    <Resource Include="Assets\Cards\Forest\BeeQueen.jpg" />
+    <Resource Include="Assets\Cards\Forest\BeeSoldier.jpg" />
+    <Resource Include="Assets\Cards\Forest\CrazySquirrel.jpg" />
+    <Resource Include="Assets\Cards\Forest\EnragedBeaver.jpg" />
+    <Resource Include="Assets\Cards\Forest\ForestWolf.jpg" />
+    <Resource Include="Assets\Cards\Forest\MagicRabbit.jpg" />
+    <Resource Include="Assets\Cards\Forest\Spells\RitualOfTheForest.png" />
+    <Resource Include="Assets\Cards\Forest\TreefolkProtector.jpg" />
+    <Resource Include="Assets\Cards\Forest\VindictiveRaccoon.jpg" />
+    <Resource Include="Assets\Cards\Goblins\GoblinHero.jpg" />
+    <Resource Include="Assets\Cards\Goblins\GoblinLooter.jpg" />
+    <Resource Include="Assets\Cards\Goblins\GoblinRaider.jpg" />
+    <Resource Include="Assets\Cards\Goblins\GoblinSaboteur.jpg" />
+    <Resource Include="Assets\Cards\Goblins\PortalJumper.jpg" />
+    <Resource Include="Assets\Cards\Goblins\Ratsmaster.jpg" />
+    <Resource Include="Assets\Cards\Goblins\Spells\ArmyOfRats.png" />
+    <Resource Include="Assets\Cards\Goblins\Spells\RescueOperation.png" />
+    <Resource Include="Assets\Cards\GolemMaster\DarkSculptor.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\Golem.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\GolemGuide.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\GolemHandler.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\GolemInstructor.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\GuardianStatue.jpg" />
+    <Resource Include="Assets\Cards\GolemMaster\Spells\ArmyUpgrade.png" />
+    <Resource Include="Assets\Cards\GolemMaster\Spells\GolemsFrenzy.png" />
+    <Resource Include="Assets\Cards\GolemMaster\Spells\GolemsJustice.png" />
+    <Resource Include="Assets\Cards\Holy\Angel.JPG" />
+    <Resource Include="Assets\Cards\Holy\ArchAngel.JPG" />
+    <Resource Include="Assets\Cards\Holy\holyGuard.JPG" />
+    <Resource Include="Assets\Cards\Holy\Monk.JPG" />
+    <Resource Include="Assets\Cards\Holy\Paladin.JPG" />
+    <Resource Include="Assets\Cards\Holy\Spells\DivineIntervention.png" />
+    <Resource Include="Assets\Cards\Holy\Spells\DivineJustice.png" />
+    <Resource Include="Assets\Cards\Holy\Spells\WrathOfGod.png" />
+    <Resource Include="Assets\Cards\Illusion\Hypnotist.jpg" />
+    <Resource Include="Assets\Cards\Illusion\Oracle.JPG" />
+    <Resource Include="Assets\Cards\Illusion\PhantomWarrior.JPG" />
+    <Resource Include="Assets\Cards\Illusion\SpectralAssassin.JPG" />
+    <Resource Include="Assets\Cards\Illusion\SpectralMage.JPG" />
+    <Resource Include="Assets\Cards\Illusion\Spells\Hypnosys.png" />
+    <Resource Include="Assets\Cards\Illusion\Spells\Madness.png" />
+    <Resource Include="Assets\Cards\Illusion\WallOfReflection.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\Cannon.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\DwarvenCraftsman.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\DwarvenRifleman.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\Ornithopter.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\Spells\Cannonade.png" />
+    <Resource Include="Assets\Cards\Mechanical\Spells\Overtime.png" />
+    <Resource Include="Assets\Cards\Mechanical\SteamTank.JPG" />
+    <Resource Include="Assets\Cards\Mechanical\SteelGolem.JPG" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\Disintegrate.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\Fireball.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\HealingSpray.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\ManaBurn.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\RitualofGlory.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\Sacrifice.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\SonicBoom.png" />
+    <Resource Include="Assets\Cards\Sorcery\Spells\StealEssence.png" />
+    <Resource Include="Assets\Cards\Time\ChronoEngine.jpg" />
+    <Resource Include="Assets\Cards\Time\ChronoHunter.jpg" />
+    <Resource Include="Assets\Cards\Time\PriestessofMoments.jpg" />
+    <Resource Include="Assets\Cards\Time\Spells\Hasten.png" />
+    <Resource Include="Assets\Cards\Time\Spells\TimeStop.png" />
+    <Resource Include="Assets\Cards\Time\TimeBlazer.jpg" />
+    <Resource Include="Assets\Cards\Time\TimeDragon.jpg" />
+    <Resource Include="Assets\Cards\Time\TimeWeaver.jpg" />
+    <Resource Include="Assets\Cards\WarriorPriest\Angel2.JPG" />
+    <Resource Include="Assets\Cards\WarriorPriest\Angelofwar.jpg" />
+    <Resource Include="Assets\Cards\WarriorPriest\Crusader.jpg" />
+    <Resource Include="Assets\Cards\WarriorPriest\HolyAvenger.jpg" />
+    <Resource Include="Assets\Cards\WarriorPriest\Spells\DivineJustice2.png" />
+    <Resource Include="Assets\Cards\WarriorPriest\Spells\DivineMeddling.png" />
+    <Resource Include="Assets\Cards\WarriorPriest\Spells\RageOfGod.png" />
+    <Resource Include="Assets\Cards\WarriorPriest\Templar.jpg" />
+    <Resource Include="Assets\Cards\Water\AstralGuard.JPG" />
+    <Resource Include="Assets\Cards\Water\GiantTurtle.JPG" />
+    <Resource Include="Assets\Cards\Water\IceGolem.JPG" />
+    <Resource Include="Assets\Cards\Water\IceGuard.JPG" />
+    <Resource Include="Assets\Cards\Water\MerfolkApostate.JPG" />
+    <Resource Include="Assets\Cards\Water\MerfolkElder.JPG" />
+    <Resource Include="Assets\Cards\Water\MerfolkOverlord.JPG" />
+    <Resource Include="Assets\Cards\Water\MindMaster.JPG" />
+    <Resource Include="Assets\Cards\Water\seasprite.JPG" />
+    <Resource Include="Assets\Cards\Water\Spells\AcidicRain.jpg" />
+    <Resource Include="Assets\Cards\Water\Spells\AcidicRain.png" />
+    <Resource Include="Assets\Cards\Water\Spells\locked.png" />
+    <Resource Include="Assets\Cards\Water\Spells\Meditation.png" />
+    <Resource Include="Assets\Cards\Water\WaterElemental.JPG" />
+    <Resource Include="Assets\Cards\Worship\BlindProphet.jpg" />
+    <Resource Include="Assets\Cards\Worship\CursedUnicorn.jpg" />
+    <Resource Include="Assets\Cards\Worship\Fanatic.jpg" />
+    <Resource Include="Assets\Cards\Worship\GreaterBargul.jpg" />
+    <Resource Include="Assets\Cards\Worship\MonumenttoRage.jpg" />
+    <Resource Include="Assets\Cards\Worship\Reaver.jpg" />
+    <Resource Include="Assets\Cards\Worship\Spells\CallToAncientSpirits.png" />
+    <Resource Include="Assets\Cards\Worship\Zealot.jpg" />
+    <Resource Include="Assets\Avatars\face1.JPG" />
+    <Resource Include="Assets\Avatars\face10.JPG" />
+    <Resource Include="Assets\Avatars\Face11.JPG" />
+    <Resource Include="Assets\Avatars\Face12.JPG" />
+    <Resource Include="Assets\Avatars\face13.JPG" />
+    <Resource Include="Assets\Avatars\face14.JPG" />
+    <Resource Include="Assets\Avatars\face15.JPG" />
+    <Resource Include="Assets\Avatars\face16.JPG" />
+    <Resource Include="Assets\Avatars\Face17.JPG" />
+    <Resource Include="Assets\Avatars\Face18.JPG" />
+    <Resource Include="Assets\Avatars\face19.JPG" />
+    <Resource Include="Assets\Avatars\Face2.JPG" />
+    <Resource Include="Assets\Avatars\Face20.JPG" />
+    <Resource Include="Assets\Avatars\Face21.JPG" />
+    <Resource Include="Assets\Avatars\Face22.JPG" />
+    <Resource Include="Assets\Avatars\Face23.JPG" />
+    <Resource Include="Assets\Avatars\face24.JPG" />
+    <Resource Include="Assets\Avatars\face25.JPG" />
+    <Resource Include="Assets\Avatars\Face26.JPG" />
+    <Resource Include="Assets\Avatars\Face27.JPG" />
+    <Resource Include="Assets\Avatars\face28.JPG" />
+    <Resource Include="Assets\Avatars\face29.JPG" />
+    <Resource Include="Assets\Avatars\Face3.JPG" />
+    <Resource Include="Assets\Avatars\Face30.JPG" />
+    <Resource Include="Assets\Avatars\Face31.JPG" />
+    <Resource Include="Assets\Avatars\face32.JPG" />
+    <Resource Include="Assets\Avatars\Face33.JPG" />
+    <Resource Include="Assets\Avatars\Face34.JPG" />
+    <Resource Include="Assets\Avatars\face35.JPG" />
+    <Resource Include="Assets\Avatars\face36.JPG" />
+    <Resource Include="Assets\Avatars\Face37.JPG" />
+    <Resource Include="Assets\Avatars\Face38.JPG" />
+    <Resource Include="Assets\Avatars\Face39.JPG" />
+    <Resource Include="Assets\Avatars\Face4.JPG" />
+    <Resource Include="Assets\Avatars\Face40.JPG" />
+    <Resource Include="Assets\Avatars\Face41.JPG" />
+    <Resource Include="Assets\Avatars\Face42.JPG" />
+    <Resource Include="Assets\Avatars\Face43.JPG" />
+    <Resource Include="Assets\Avatars\Face44.JPG" />
+    <Resource Include="Assets\Avatars\Face45.JPG" />
+    <Resource Include="Assets\Avatars\Face46.JPG" />
+    <Resource Include="Assets\Avatars\Face47.JPG" />
+    <Resource Include="Assets\Avatars\Face48.JPG" />
+    <Resource Include="Assets\Avatars\Face49.JPG" />
+    <Resource Include="Assets\Avatars\Face5.JPG" />
+    <Resource Include="Assets\Avatars\Face50.JPG" />
+    <Resource Include="Assets\Avatars\Face51.JPG" />
+    <Resource Include="Assets\Avatars\Face52.JPG" />
+    <Resource Include="Assets\Avatars\Face53.JPG" />
+    <Resource Include="Assets\Avatars\Face54.JPG" />
+    <Resource Include="Assets\Avatars\Face55.JPG" />
+    <Resource Include="Assets\Avatars\Face56.JPG" />
+    <Resource Include="Assets\Avatars\Face57.JPG" />
+    <Resource Include="Assets\Avatars\Face58.JPG" />
+    <Resource Include="Assets\Avatars\Face59.JPG" />
+    <Resource Include="Assets\Avatars\Face6.JPG" />
+    <Resource Include="Assets\Avatars\Face60.JPG" />
+    <Resource Include="Assets\Avatars\Face61.JPG" />
+    <Resource Include="Assets\Avatars\Face62.JPG" />
+    <Resource Include="Assets\Avatars\Face63.JPG" />
+    <Resource Include="Assets\Avatars\Face64.JPG" />
+    <Resource Include="Assets\Avatars\Face65.JPG" />
+    <Resource Include="Assets\Avatars\Face66.jpg" />
+    <Resource Include="Assets\Avatars\Face67.jpg" />
+    <Resource Include="Assets\Avatars\Face68.jpg" />
+    <Resource Include="Assets\Avatars\Face69.jpg" />
+    <Resource Include="Assets\Avatars\Face7.JPG" />
+    <Resource Include="Assets\Avatars\Face70.jpg" />
+    <Resource Include="Assets\Avatars\Face71.jpg" />
+    <Resource Include="Assets\Avatars\Face72.jpg" />
+    <Resource Include="Assets\Avatars\Face73.jpg" />
+    <Resource Include="Assets\Avatars\Face74.jpg" />
+    <Resource Include="Assets\Avatars\Face75.jpg" />
+    <Resource Include="Assets\Avatars\Face76.jpg" />
+    <Resource Include="Assets\Avatars\Face77.jpg" />
+    <Resource Include="Assets\Avatars\Face78.jpg" />
+    <Resource Include="Assets\Avatars\Face79.jpg" />
+    <Resource Include="Assets\Avatars\Face8.JPG" />
+    <Resource Include="Assets\Avatars\Face9.JPG" />
+    <Resource Include="Assets\Avatars\Unknown.png" />
+    <Resource Include="Assets\Avatars\Face0.png" />
+    <Content Include="Assets\Backgrounds\MainHubBackground.jpg" />
+    <Resource Include="Assets\Elements\air.jpg" />
+    <Resource Include="Assets\Elements\beast.jpg" />
+    <Resource Include="Assets\Elements\blood.jpg" />
+    <Resource Include="Assets\Elements\chaos.jpg" />
+    <Resource Include="Assets\Elements\control.jpg" />
+    <Resource Include="Assets\Elements\death.jpg" />
+    <Resource Include="Assets\Elements\demonic.jpg" />
+    <Resource Include="Assets\Elements\earth.jpg" />
+    <Resource Include="Assets\Elements\fire.jpg" />
+    <Resource Include="Assets\Elements\forest.jpg" />
+    <Resource Include="Assets\Elements\goblins.jpg" />
+    <Resource Include="Assets\Elements\golemmaster.jpg" />
+    <Resource Include="Assets\Elements\holy.jpg" />
+    <Resource Include="Assets\Elements\illusion.jpg" />
+    <Resource Include="Assets\Elements\mechanical.jpg" />
+    <Resource Include="Assets\Elements\sorcery.jpg" />
+    <Resource Include="Assets\Elements\time.jpg" />
+    <Resource Include="Assets\Elements\warriorpriest.jpg" />
+    <Resource Include="Assets\Elements\water.jpg" />
+    <Resource Include="Assets\Elements\worship.jpg" />
+    <Content Include="Assets\Fonts\Avalon.ttf" />
+    <Content Include="Assets\Fonts\gothicrm.ttf" />
+    <Content Include="Assets\Fonts\vampire.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Flags\African Union.png" />
+    <Resource Include="Assets\Flags\Argentina.png" />
+    <Resource Include="Assets\Flags\Australia.png" />
+    <Resource Include="Assets\Flags\Austria.png" />
+    <Resource Include="Assets\Flags\Belarus.png" />
+    <Resource Include="Assets\Flags\Belgium.png" />
+    <Resource Include="Assets\Flags\Bosnia &amp; Herzegovina.png" />
+    <Resource Include="Assets\Flags\Brazil.png" />
+    <Resource Include="Assets\Flags\Bulgaria.png" />
+    <Resource Include="Assets\Flags\Canada.png" />
+    <Resource Include="Assets\Flags\China.png" />
+    <Resource Include="Assets\Flags\Croatia.png" />
+    <Resource Include="Assets\Flags\Czech Republic.png" />
+    <Resource Include="Assets\Flags\Denmark.png" />
+    <Resource Include="Assets\Flags\Egypt.png" />
+    <Resource Include="Assets\Flags\England.png" />
+    <Resource Include="Assets\Flags\Estonia.png" />
+    <Resource Include="Assets\Flags\Finland.png" />
+    <Resource Include="Assets\Flags\France.png" />
+    <Resource Include="Assets\Flags\Germany.png" />
+    <Resource Include="Assets\Flags\Greece.png" />
+    <Resource Include="Assets\Flags\Hungary.png" />
+    <Resource Include="Assets\Flags\Iceland.png" />
+    <Resource Include="Assets\Flags\India.png" />
+    <Resource Include="Assets\Flags\Indonezia.png" />
+    <Resource Include="Assets\Flags\Iran.png" />
+    <Resource Include="Assets\Flags\Iraq.png" />
+    <Resource Include="Assets\Flags\Ireland.png" />
+    <Resource Include="Assets\Flags\Israel.png" />
+    <Resource Include="Assets\Flags\Italy.png" />
+    <Resource Include="Assets\Flags\Japan.png" />
+    <Resource Include="Assets\Flags\Kazakhstan.png" />
+    <Resource Include="Assets\Flags\Latvia.png" />
+    <Resource Include="Assets\Flags\Lithuania.png" />
+    <Resource Include="Assets\Flags\Luxembourg.png" />
+    <Resource Include="Assets\Flags\Malta.png" />
+    <Resource Include="Assets\Flags\Mexico.png" />
+    <Resource Include="Assets\Flags\Moldova.png" />
+    <Resource Include="Assets\Flags\Monaco.png" />
+    <Resource Include="Assets\Flags\Morocco.png" />
+    <Resource Include="Assets\Flags\Netherlands.png" />
+    <Resource Include="Assets\Flags\New Zealand.png" />
+    <Resource Include="Assets\Flags\North Korea.png" />
+    <Resource Include="Assets\Flags\Northern Ireland.png" />
+    <Resource Include="Assets\Flags\Norway.png" />
+    <Resource Include="Assets\Flags\Poland.png" />
+    <Resource Include="Assets\Flags\Portugal.png" />
+    <Resource Include="Assets\Flags\Romania.png" />
+    <Resource Include="Assets\Flags\Russia.png" />
+    <Resource Include="Assets\Flags\Saint Lucia.png" />
+    <Resource Include="Assets\Flags\Slovakia.png" />
+    <Resource Include="Assets\Flags\Slovenia.png" />
+    <Resource Include="Assets\Flags\South Korea.png" />
+    <Resource Include="Assets\Flags\Spain.png" />
+    <Resource Include="Assets\Flags\Sweden.png" />
+    <Resource Include="Assets\Flags\Switzerland.png" />
+    <Resource Include="Assets\Flags\Turkey.png" />
+    <Resource Include="Assets\Flags\Ukraine.png" />
+    <Resource Include="Assets\Flags\United Kingdom.png" />
+    <Resource Include="Assets\Flags\United States.png" />
+    <Content Include="Assets\Backgrounds\OnlineHubBackround.jpg" />
+    <Content Include="Assets\Icons\appbar.next.png" />
+    <Content Include="Assets\Icons\skipturn.png" />
+    <Content Include="Assets\Sounds\AcidicRain.wav" />
+    <Content Include="Assets\Sounds\Armageddon.wav" />
+    <Content Include="Assets\Sounds\ArmyOfRats.wav" />
+    <Content Include="Assets\Sounds\ArmyUpgrade.wav" />
+    <Content Include="Assets\Sounds\Attack.wav" />
+    <Content Include="Assets\Sounds\BloodBoil.wav" />
+    <Content Include="Assets\Sounds\BloodRitual.wav" />
+    <Content Include="Assets\Sounds\BreatheFire.wav" />
+    <Content Include="Assets\Sounds\CallToAncientSpirits.wav" />
+    <Content Include="Assets\Sounds\CalltoThunder.wav" />
+    <Content Include="Assets\Sounds\cannonade.wav" />
+    <Content Include="Assets\Sounds\ChainLightning.wav" />
+    <Content Include="Assets\Sounds\ChaoticWave.wav" />
+    <Content Include="Assets\Sounds\CursedFog.wav" />
+    <Content Include="Assets\Sounds\darkritual.wav" />
+    <Content Include="Assets\Sounds\Disintegrate.wav" />
+    <Content Include="Assets\Sounds\DivineIntervention.wav" />
+    <Content Include="Assets\Sounds\DivineJustice.wav" />
+    <Content Include="Assets\Sounds\DivineJustice2.wav" />
+    <Content Include="Assets\Sounds\DivineMeddling.wav" />
+    <Content Include="Assets\Sounds\doombolt.wav" />
+    <Content Include="Assets\Sounds\Drainsouls.wav" />
+    <Content Include="Assets\Sounds\Enrage.wav" />
+    <Content Include="Assets\Sounds\Explosion.wav" />
+    <Content Include="Assets\Sounds\Fireball.wav" />
+    <Content Include="Assets\Sounds\Flamewave.wav" />
+    <Content Include="Assets\Sounds\Gaze.wav" />
+    <Content Include="Assets\Sounds\GolemsFrenzy.wav" />
+    <Content Include="Assets\Sounds\GolemsJustice.wav" />
+    <Content Include="Assets\Sounds\hasten.wav" />
+    <Content Include="Assets\Sounds\HealingSpray.wav" />
+    <Content Include="Assets\Sounds\Hellfire.wav" />
+    <Content Include="Assets\Sounds\hypnosys.wav" />
+    <Content Include="Assets\Sounds\Inferno.wav" />
+    <Content Include="Assets\Sounds\LightningBolt.wav" />
+    <Content Include="Assets\Sounds\madness.wav" />
+    <Content Include="Assets\Sounds\ManaBurn.wav" />
+    <Content Include="Assets\Sounds\Meditation.wav" />
+    <Content Include="Assets\Sounds\MoveFalcon.wav" />
+    <Content Include="Assets\Sounds\NaturalFury.wav" />
+    <Content Include="Assets\Sounds\NaturalHealing.wav" />
+    <Content Include="Assets\Sounds\NatureRitual.wav" />
+    <Content Include="Assets\Sounds\overtime.wav" />
+    <Content Include="Assets\Sounds\Poison.wav" />
+    <Content Include="Assets\Sounds\PoisonousCloud.wav" />
+    <Content Include="Assets\Sounds\PowerChains.wav" />
+    <Content Include="Assets\Sounds\private.wav" />
+    <Content Include="Assets\Sounds\PumpEnergy.wav" />
+    <Content Include="Assets\Sounds\RageOfGod.wav" />
+    <Content Include="Assets\Sounds\Rejuvenation.wav" />
+    <Content Include="Assets\Sounds\RescueOperation.wav" />
+    <Content Include="Assets\Sounds\ring.wav" />
+    <Content Include="Assets\Sounds\RitualOfGlory.wav" />
+    <Content Include="Assets\Sounds\Ritualoftheforest.wav" />
+    <Content Include="Assets\Sounds\Sacrifice.wav" />
+    <Content Include="Assets\Sounds\SonicBoom.wav" />
+    <Content Include="Assets\Sounds\StealEssence.wav" />
+    <Content Include="Assets\Sounds\StoneRain.wav" />
+    <Content Include="Assets\Sounds\Summon.wav" />
+    <Content Include="Assets\Sounds\Timestop.wav" />
+    <Content Include="Assets\Sounds\Tornado.wav" />
+    <Content Include="Assets\Sounds\Trumpet.wav" />
+    <Content Include="Assets\Sounds\Weakness.wav" />
+    <Content Include="Assets\Sounds\wrathofgod.wav" />
+    <Content Include="Assets\Sounds\YourTurn.wav" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.ru.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\..\..\libs\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="BindableApplicationBar">
+      <HintPath>..\..\..\..\..\libs\BindableApplicationBar.1.0.0\lib\sl4-windowsphone71\BindableApplicationBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Cimbalino.Phone.Toolkit">
+      <HintPath>..\..\..\..\..\libs\Cimbalino.Phone.Toolkit.3.1.0\lib\wp8\Cimbalino.Phone.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Cimbalino.Phone.Toolkit.Background">
+      <HintPath>..\..\..\..\..\libs\Cimbalino.Phone.Toolkit.Background.3.1.0\lib\wp8\Cimbalino.Phone.Toolkit.Background.dll</HintPath>
+    </Reference>
+    <Reference Include="Cimbalino.Phone.Toolkit.Controls">
+      <HintPath>..\..\..\..\..\libs\Cimbalino.Phone.Toolkit.Controls.3.1.0\lib\wp8\Cimbalino.Phone.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\..\..\..\..\libs\MvvmCross.HotTuna.CrossCore.3.0.14\lib\sl4-wp71\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore.WindowsPhone">
+      <HintPath>..\..\..\..\..\libs\MvvmCross.HotTuna.CrossCore.3.0.14\lib\sl4-wp71\Cirrious.CrossCore.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\..\..\..\..\libs\MvvmCross.HotTuna.CrossCore.3.0.14\lib\sl4-wp71\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP8">
+      <HintPath>..\..\..\..\..\libs\MvvmLightLibs.4.1.27.1\lib\wp8\GalaSoft.MvvmLight.Extras.WP8.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WP8">
+      <HintPath>..\..\..\..\..\libs\MvvmLightLibs.4.1.27.1\lib\wp8\GalaSoft.MvvmLight.WP8.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\..\..\..\..\libs\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\libs\MvvmLightLibs.4.1.27.1\lib\wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\..\..\libs\protobuf-net.2.0.0.640\lib\windowsphone8\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\libs\MvvmLightLibs.4.1.27.1\lib\wp8\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Seedwork\Utils\" />
+    <Folder Include="Views\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Shared\Abo.Server.Application.DataTransferObjects\Abo.Server.Application.DataTransferObjects.csproj">
+      <Project>{B3FA38D2-EE74-4EEE-BE94-351A0FF3C057}</Project>
+      <Name>Abo.Server.Application.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Shared\Abo.Server.Infrastructure.Protocol\Abo.Server.Infrastructure.Protocol.csproj">
+      <Project>{A0ABA262-9090-46C1-A283-8A926806587A}</Project>
+      <Name>Abo.Server.Infrastructure.Protocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Shared\Abo.Utils\Abo.Utils.csproj">
+      <Project>{BE0BED22-5CAF-4B11-A3B8-2F9F86A059F4}</Project>
+      <Name>Abo.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Abo.Client.Core\Abo.Client.Core.csproj">
+      <Project>{E3045B4B-AD52-4A5A-B068-6A6A8D23CD5C}</Project>
+      <Name>Abo.Client.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

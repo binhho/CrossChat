@@ -1,0 +1,6 @@
+[submodule "src/Submodules/SuperSocket"]
+	path = src/Submodules/SuperSocket
+	url = https://github.com/kerryjiang/SuperSocket.git
+[submodule "src/Submodules/SuperSocket.ClientEngine"]
+	path = src/Submodules/SuperSocket.ClientEngine
+	url = https://github.com/kerryjiang/SuperSocket.ClientEngine.git

@@ -1,0 +1,87 @@
+﻿<navigation:NavigatablePage
+    x:Class="Abo.Client.WP.Silverlight.Views.MainMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:p="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigation="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Navigation"
+    xmlns:c="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            
+            <Button VerticalAlignment="Top" HorizontalAlignment="Center" 
+                    Command="{Binding ShowOnlineHubCommand}"
+                    Content="Online hub" Width="300" FontSize="32" />
+            
+            <Button VerticalAlignment="Top" HorizontalAlignment="Center" 
+                    Command="{Binding ShowCardsCatalogCommand}"
+                    Content="Cards catalog" Width="300" FontSize="32" />
+            
+        </StackPanel>-->
+        <p:Panorama Margin="0,18,0,0" HeaderTemplate="{StaticResource PanoramaItemHeaderDataTemplate}">
+            <p:Panorama.Background>
+                <ImageBrush ImageSource="/Assets/Backgrounds/MainHubBackground.jpg"/>
+            </p:Panorama.Background>
+            <p:PanoramaItem Header="GAME">
+                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Left">
+                    <c:TiltGrid Margin="0,60,0,0" TapCommand="{Binding ShowOnlineHubCommand}">
+                        <TextBlock FontSize="120" 
+                               Text="ONLINE" 
+                               FontWeight="Bold" 
+                               FontFamily="{StaticResource GothicFont}"/>
+                    </c:TiltGrid>
+                    <c:TiltGrid Margin="0,60,0,0" TapCommand="{Binding ShowSinglePlayerCommand}">
+                        <TextBlock FontSize="120" 
+                               Text="SINGLE" 
+                               FontWeight="Bold" 
+                               FontFamily="{StaticResource GothicFont}"/>
+                    </c:TiltGrid>
+                </StackPanel>
+            </p:PanoramaItem>
+            
+            <p:PanoramaItem Header="HELP">
+                <StackPanel Margin="0,20,0,0">
+                    <c:TiltGrid Margin="0,60,0,0" TapCommand="{Binding ShowCardsCatalogCommand}">
+                        <TextBlock FontSize="120" 
+                               Text="CARDS" 
+                               FontWeight="Bold" 
+                               FontFamily="{StaticResource GothicFont}"/>
+                    </c:TiltGrid>
+                    <c:TiltGrid Margin="0,60,0,0" TapCommand="{Binding ShowCardsCatalogCommand}">
+                        <TextBlock FontSize="120" 
+                               Text="TUTORIAL" 
+                               FontWeight="Bold" 
+                               FontFamily="{StaticResource GothicFont}"/>
+                    </c:TiltGrid>
+                </StackPanel>
+            </p:PanoramaItem>
+            
+            <p:PanoramaItem Header="OPTIONS">
+            </p:PanoramaItem>
+            
+            <p:PanoramaItem Header="ABOUT">
+            </p:PanoramaItem>
+        </p:Panorama>
+    </Grid>
+
+</navigation:NavigatablePage>

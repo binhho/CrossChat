@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Abo.Client.WP.Silverlight.Views.PhotoSelectionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:designTimeViewModels="clr-namespace:Abo.Client.WP.Silverlight.Views.DesignTimeViewModels"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:c="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Controls"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    Height="800" Width="480" d:DataContext="{d:DesignInstance Type=designTimeViewModels:DT_PhotoSelectionViewModel, IsDesignTimeCreatable=True}">
+
+    <Grid x:Name="LayoutRoot" Background="#221E1E">
+        <ListBox Margin="-28,8,-25,0" x:Name="AvatarsList" ItemsSource="{Binding BuiltinPhotos}" HorizontalAlignment="Center">
+        <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <c:TiltGrid Margin="12" TapCommandParameter="{Binding}" TapCommand="{Binding DataContext.SelectBuiltinPhotoCommand, ElementName=AvatarsList}">
+                        <Image Stretch="UniformToFill" Width="130" Height="130" Source="{Binding ., Converter={StaticResource IdToPhotoConverter}}"/>
+                    </c:TiltGrid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <toolkit:WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</UserControl>

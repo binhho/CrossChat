@@ -1,0 +1,301 @@
+﻿<UserControl x:Class="Abo.Client.WP.Silverlight.Views.Battlefield.FieldControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:designTimeViewModels="clr-namespace:Abo.Client.WP.Silverlight.Views.DesignTimeViewModels"
+    mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    d:DesignHeight="100" d:DesignWidth="100" d:DataContext="{d:DesignInstance Type=designTimeViewModels:DT_FieldViewModel, IsDesignTimeCreatable=True}" x:Name="ThisControl">
+
+    <Grid x:Name="LayoutRoot" Background="#FF09D5" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
+        <Grid.Projection>
+            <PlaneProjection/>
+        </Grid.Projection>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:1" To="DieState">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:1.2" To="-1500" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetZ)" Storyboard.TargetName="LayoutRoot"/>
+                            <DoubleAnimation Duration="0:0:1.2" To="-180" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="LayoutRoot">
+                                <DoubleAnimation.EasingFunction>
+                                    <BounceEase EasingMode="EaseOut"/>
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Duration="0:0:1.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True"/>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:1" To="AttackBottomState">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <BackEase EasingMode="EaseOut" Amplitude="0"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="LayoutRoot">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="30"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <BackEase EasingMode="EaseInOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:1" To="AttackTopState">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <BackEase EasingMode="EaseOut" Amplitude="0"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="LayoutRoot">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-30"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <BackEase EasingMode="EaseInOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:0.5" To="SkipTurnState">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <BackEase EasingMode="EaseOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="ClocksBorder">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FFCECECE"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.685" Value="#FF787878"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.789" Value="#FFCECECE"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ClocksBorder">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.456" Value="0.785">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CircleEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.789" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation Duration="0:0:0.789" To="180" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="SkipTurnImage" d:IsOptimized="True"/>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ClocksBorder">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.456">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.81">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Collapsed</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:1" To="CreationState">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:1" From="90" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="LayoutRoot">
+                                <DoubleAnimation.EasingFunction>
+                                    <BounceEase EasingMode="EaseOut"/>
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="DefaultState"/>
+                <VisualState x:Name="DieState"/>
+                <VisualState x:Name="CreationState">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="AttackBottomState"/>
+                <VisualState x:Name="AttackTopState"/>
+                <VisualState x:Name="SkipTurnState"/>
+                <VisualState x:Name="BaseState"/>
+            </VisualStateGroup>
+            
+            <VisualStateGroup x:Name="ActVisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0" To="ActState">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetZ)" Storyboard.TargetName="CreatureGrid">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="90">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <QuinticEase EasingMode="EaseIn"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CircleEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="ActState"/>
+                <VisualState x:Name="ActBaseState"/>
+            </VisualStateGroup>
+            
+            <VisualStateGroup x:Name="BonusVisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:1" To="GotDamageState">
+                        <Storyboard>
+
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OverlayTextBlock">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="OverlayTextBlock">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-45"/>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="OverlayBorder">
+                                <EasingColorKeyFrame KeyTime="0" Value="#11FF0000"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#C0FB0300"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#11FF0000"/>
+                            </ColorAnimationUsingKeyFrames>
+                            
+                        </Storyboard>
+                    </VisualTransition>
+                    <VisualTransition GeneratedDuration="0:0:1" To="GotHealthState">
+                        <Storyboard>
+                            
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OverlayTextBlock">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="OverlayTextBlock">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-45"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="OverlayBorder">
+                                <EasingColorKeyFrame KeyTime="0" Value="#005AFF00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#C037FE00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.7" Value="#002BFF00"/>
+                            </ColorAnimationUsingKeyFrames>
+                            
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="GotHealthState" />
+                <VisualState x:Name="GotDamageState"/>
+                <VisualState x:Name="BonusDefautState"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+        <TextBlock Text="{Binding FieldName}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#58000000" FontWeight="Bold" FontSize="29.333"/>
+
+        <Rectangle x:Name="WaitSelectRectangle" Stroke ="#FFABABAB" StrokeThickness="10" 
+                   StrokeDashArray="0.5,2"
+                   Visibility="{Binding Field.IsWaitingForSelect, Converter={StaticResource TrueToVisibleConverter}}" Margin="-3" StrokeDashCap="Square">
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Rectangle.Loaded">
+                    <EventTrigger.Actions >
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                                     Storyboard.TargetName="WaitSelectRectangle"
+                                     Storyboard.TargetProperty="StrokeDashOffset"
+                                     To="30" Duration="0:0:10"
+                                     RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
+        
+        <Rectangle x:Name="rootRectangle" Stroke ="Gold" StrokeThickness ="3" 
+                   StrokeDashArray="0.5,2" StrokeDashCap="Round"
+                   Visibility="{Binding Field.IsSelected, Converter={StaticResource TrueToVisibleConverter}}">
+        </Rectangle>
+
+        <Grid x:Name="CreatureGrid" Margin="3" Background="#FFD4D61A" Visibility="{Binding Field.IsEmpty, Converter={StaticResource TrueToCollapsedConverter}}" RenderTransformOrigin="0.5,0.5" >
+            <!--d:IsHidden="True"-->
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Grid.Projection>
+                <PlaneProjection/>
+            </Grid.Projection>
+            
+            <Image x:Name="CreatureImage" Source="/Assets/Cards/Fire/FireElemental.JPG">
+                <Image.Projection>
+                    <PlaneProjection/>
+                </Image.Projection>
+            </Image>
+            
+            <Border x:Name="OverlayBorder" Background="#00000000" Opacity="1">
+            </Border>
+
+            <TextBlock x:Name="OverlayTextBlock" Opacity="0" HorizontalAlignment="Center" Foreground="White"
+				    VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Text="{Binding OverlayText}" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.Projection>
+                    <PlaneProjection/>
+                </TextBlock.Projection>
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <Border HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+				CornerRadius="0,8,0,0" Background="#7E000000" Margin="0,0,0,0" >
+                <TextBlock x:Name="DamageTextBlock" Foreground="White"  
+					Text="{Binding Field.Card.Damage}" TextAlignment="Center" Height="30" Width="25"
+					Margin="1,-3,1,-4" />
+            </Border>
+
+
+            <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+				CornerRadius="8,0,0,0" Background="#7E000000" Margin="0,0,0,0" >
+                <TextBlock x:Name="HealthTextBlock" Foreground="LightGreen"  
+					Text="{Binding Field.Card.Health}" TextAlignment="Center" Height="30" Width="25"
+					Margin="1,-3,1,-4" />
+            </Border>
+
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" 
+				CornerRadius="0,0,8,0" Background="#7E000000" Margin="0,0,0,0" >
+                <TextBlock x:Name="CostTextBlock" Foreground="Gold"  
+					Text="{Binding Field.Card.Cost}" TextAlignment="Center" Height="30" Width="25"
+					Margin="1,-4,1,-3" />
+            </Border>
+
+            <Border x:Name="ClocksBorder" Background="Transparent" Visibility="Collapsed">
+                <Image x:Name="SkipTurnImage" Source="/Assets/Icons/skipturn.png" Width="70" >
+                    <Image.Projection>
+                        <PlaneProjection/>
+                    </Image.Projection>
+                </Image>
+            </Border>
+        </Grid>
+
+    </Grid>
+</UserControl>

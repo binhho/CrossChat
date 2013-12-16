@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="Abo.Client.WP.Silverlight.Views.Battlefield.ExpandedCardsBookControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:designTimeViewModels="clr-namespace:Abo.Client.WP.Silverlight.Views.DesignTimeViewModels"
+    xmlns:battlefield="clr-namespace:Abo.Client.WP.Silverlight.Views.Battlefield"
+    mc:Ignorable="d" Foreground="White" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    d:DataContext="{d:DesignInstance Type=designTimeViewModels:DT_BattlefieldPlayerViewModel, IsDesignTimeCreatable=True}"
+    Height="170" Width="408">
+
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="CardInBookDataTemplate">
+            <Grid Margin="1.5">
+                <Grid Width="80" Height="80"
+                      HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="3" Source="{Binding ., Converter={StaticResource CardImageConverter}}" />
+
+
+                    <Border Width="22" Height="19"
+                            Margin="3,3,3,3" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Background="#97494949"
+                            CornerRadius="0,0,5,0">
+                        <TextBlock Margin="2,-3,2,0" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" FontSize="17"
+                                   Foreground="Gold"
+                                   Text="{Binding Cost}" />
+                    </Border>
+
+                    <Border Width="22" Height="19"
+                            Margin="3,3,3,3" HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom" Background="#97494949"
+                            CornerRadius="0,5,0,0"
+                            Visibility="{Binding ., Converter={StaticResource IsCreatureToVisible}}">
+                        <TextBlock Margin="2,-3,2,0" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" FontSize="17"
+                                   Foreground="#FFFFF9CF"
+                                   Text="{Binding Damage}" />
+                    </Border>
+
+                    <Border Width="22" Height="19"
+                            Margin="3,3,3,3" HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom" Background="#97494949"
+                            CornerRadius="5,0,0,0"
+                            Visibility="{Binding ., Converter={StaticResource IsCreatureToVisible}}">
+                        <TextBlock Margin="2,-3,2,0" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" FontSize="17"
+                                   Foreground="#FF9DFF71"
+                                   Text="{Binding Health}" />
+                    </Border>
+
+                    <!--<Border x:Name="cardInBookBorder" Margin="3" Background="#5E5E5E"
+                            Opacity="{Binding IsActive, Converter={StaticResource isActiveToOpacityConverter}}">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="15" FontWeight="Bold"
+                                   Foreground="#FAFAFA" Text="{Binding Path=CommonResources.CardBook_NotEnoughMana, Source={StaticResource ResourceWrapper}}"
+                                   TextAlignment="Center" TextWrapping="Wrap" />
+                    </Border>-->
+
+                    <!--<TextBlock Text="{Binding ., Converter={StaticResource getHashCodeConverter}}" Foreground="Red" />-->
+
+                    <!--<Rectangle x:Name="rootRectangle" Stroke="White"
+                               StrokeDashArray="0.5,2" StrokeDashCap="Square"
+                               StrokeThickness="2"
+                               Visibility="{Binding IsSelected, Converter={StaticResource TrueToVisibleConverter}}">
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:30" RepeatBehavior="Forever"
+                                                             Storyboard.TargetName="rootRectangle" Storyboard.TargetProperty="StrokeDashOffset"
+                                                             To="20" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>-->
+
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid x:Name="CardsPanelLayoutRoot" Width="408"
+              Height="170" Margin="0,0,3,0"
+              HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <!--  491 for 8, 408 for 6  -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="154" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="listBox"
+                     ItemsSource="{Binding Elements}" SelectedItem="{Binding SelectedElement, Mode=TwoWay}"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <battlefield:ElementInfoControl />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Grid Grid.Column="1" Margin="0,0,5,0"
+                  Background="#002F0D00">
+                <ListBox x:Name="rootCardList" Margin="-4,0,0,0"
+                         ItemsSource="{Binding Elements}"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         SelectedItem="{Binding SelectedItem, ElementName=listBox}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBox Margin="0,0,4,0" 
+                                     ItemsSource="{Binding Cards}"
+                                     ItemTemplate="{StaticResource CardInBookDataTemplate}"
+                                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <toolkit:WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <!--
+            
+            
+                     SelectedItem="{Binding BattlefieldViewModel.FirstPlayerSelectedElement, Mode=TwoWay}"
+                     SelectionChanged="ListBoxSelectionChanged" 
+            
+            
+                         SelectedItem="{Binding BattlefieldViewModel.FirstPlayerSelectedElement, Mode=TwoWay}"
+            
+            
+                                     SelectedItem="{Binding ElementName=rootCardList,
+                                                            Path=DataContext.BattlefieldViewModel.SelectedCard,
+                                                            Mode=TwoWay}"
+            
+            
+            
+            
+            <toolkit:GestureService.GestureListener>
+                <toolkit:GestureListener Flick="GestureListenerFlick" />
+            </toolkit:GestureService.GestureListener>-->
+        </Grid>
+    </Grid>
+</UserControl>

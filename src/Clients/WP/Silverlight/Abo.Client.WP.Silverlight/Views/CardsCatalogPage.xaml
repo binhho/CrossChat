@@ -1,0 +1,112 @@
+﻿<navigation:NavigatablePage
+    x:Class="Abo.Client.WP.Silverlight.Views.CardsCatalogPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Controls"
+    xmlns:navigation="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Navigation"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <c:PivotEx ItemsSource="{Binding Elements}" HeaderTemplate="{StaticResource ElementPivotItemHeaderDataTemplate}" Margin="0,8,0,0">
+            <phone:Pivot.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <ListBox Margin="0,0,0,0" ItemsSource="{Binding Cards}" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid Margin="0,15">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="90" />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Margin="0,0,0,0" Height="90" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                                                <Image Source="{Binding ., Converter={StaticResource CardImageConverter}}"/>
+
+                                                <Border VerticalAlignment="Top" HorizontalAlignment="Left" Background="#97494949" 
+                                                        Margin="0" Height="30" Width="30" CornerRadius="0,0,5,0">
+                                                    <TextBlock Text="{Binding Cost}" Margin="2,0,2,0" 
+								                               VerticalAlignment="Center" HorizontalAlignment="Center" 
+								                               FontSize="22" Foreground="White"></TextBlock>
+                                                </Border>
+
+                                                <Border VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                                                        Background="#97494949" Margin="0" Height="30"
+                                                        Width="30" CornerRadius="0,5,0,0"
+                                                        Visibility="{Binding ., Converter={StaticResource IsCreatureToVisible}}">
+                                                    <TextBlock Text="{Binding Damage}" Margin="2,0,2,0" 
+								                               VerticalAlignment="Center" HorizontalAlignment="Center" 
+								                               FontSize="22" Foreground="#FFFFF9CF"></TextBlock>
+                                                </Border>
+
+                                                <Border VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#97494949" 
+                                                        Margin="0" Height="30" Width="30" CornerRadius="5,0,0,0"
+                                                        Visibility="{Binding ., Converter={StaticResource IsCreatureToVisible}}">
+                                                    <TextBlock Text="{Binding Health}" Margin="2,0,2,0" 
+								                               VerticalAlignment="Center" HorizontalAlignment="Center" 
+								                               FontSize="22" Foreground="#FF9DFF71"></TextBlock>
+                                                </Border>
+                                            </Grid>
+
+                                            <StackPanel Margin="7,0,7,0" Grid.Column="1" Grid.RowSpan="2" >
+
+                                                
+                                                <TextBlock Margin="0,-6,0,0" 
+                                                           FontSize="20"
+                                                           Foreground="{StaticResource AccentColor}"
+                                                           TextTrimming="WordEllipsis" 
+                                                           TextAlignment="Left"
+                                                           Text="{Binding Localization.DefaultLanguage.DisplayName}" />
+
+                                                <TextBlock Margin="0,-3,0,0" 
+                                                           FontSize="20" Visibility="{Binding ., Converter={StaticResource IsCreatureToVisible}}"
+                                                           Foreground="White"
+                                                           TextTrimming="WordEllipsis" 
+                                                           TextAlignment="Left">
+                                                    <Run Text="Cost: "/><Run Text="{Binding Cost}"/><Run Text=". Damage: "/><Run Text="{Binding Damage}"/><Run Text=". HP: "/><Run Text=""/><Run Text="{Binding Health}"/>
+                                                </TextBlock>
+
+                                                <TextBlock Margin="0,-3,0,0" 
+                                                           FontSize="20" Visibility="{Binding ., Converter={StaticResource IsCreatureToCollapsed}}"
+                                                           Foreground="White"
+                                                           TextTrimming="WordEllipsis" 
+                                                           TextAlignment="Left">
+                                                    <Run Text="Cost: "/><Run Text="{Binding Cost}"/>
+                                                </TextBlock>
+
+                                                <TextBlock Margin="0,-2,0,0" 
+                                                           FontSize="20"
+                                                           Foreground="#9E9E9E"
+                                                           TextTrimming="WordEllipsis" 
+                                                           TextAlignment="Left" TextWrapping="Wrap"
+                                                           Text="{Binding Localization.DefaultLanguage.Description}" />
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </DataTemplate>
+            </phone:Pivot.ItemTemplate>
+        </c:PivotEx>
+    </Grid>
+
+</navigation:NavigatablePage>

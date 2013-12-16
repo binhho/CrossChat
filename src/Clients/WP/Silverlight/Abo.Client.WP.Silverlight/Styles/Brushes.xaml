@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="ChatNormalForeground" Color="White"/>
+    <SolidColorBrush x:Key="ChatSystemForeground" Color="White"/>
+    <SolidColorBrush x:Key="ChatHyperlinkForeground" Color="#83A4FF"/>
+    <SolidColorBrush x:Key="ChatPlayerNickForeground" Color="#FFCAAE61"/>
+    <SolidColorBrush x:Key="ChatModerNickForeground" Color="#FFCAAE61"/>
+    <SolidColorBrush x:Key="ChatAdminNickForeground" Color="#FFCAAE61"/>
+    <SolidColorBrush x:Key="ChatTimestampForeground" Color="#AAAAAA"/>
+
+    <SolidColorBrush x:Key="AccentColor" Color="#FFCAAE61"/>
+
+    
+
+</ResourceDictionary>

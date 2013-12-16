@@ -1,0 +1,192 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:c="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Converters"
+    xmlns:cc="clr-namespace:Abo.Client.WP.Silverlight.Converters"
+    xmlns:enums="clr-namespace:Abo.Client.Core.Model.Enums;assembly=Abo.Client.Core"
+    mc:Ignorable="d">
+
+    <Visibility x:Key="CollapsedVisibility">Collapsed</Visibility>
+    <Visibility x:Key="VisibleVisibility">Visible</Visibility>
+    <enums:UserRole x:Key="AdminRole">Admin</enums:UserRole>
+    
+    <system:Boolean x:Key="TrueBoolean">True</system:Boolean>
+    <system:Boolean x:Key="FalseBoolean">False</system:Boolean>
+
+    <c:BooleanToValueConverter x:Key="TrueToZeroConverter">
+        <c:BooleanToValueConverter.ValueForFalse>
+            <system:Double>1.0</system:Double>
+        </c:BooleanToValueConverter.ValueForFalse>
+        <c:BooleanToValueConverter.ValueForTrue>
+            <system:Double>0.0</system:Double>
+        </c:BooleanToValueConverter.ValueForTrue>
+    </c:BooleanToValueConverter>
+
+    <c:BooleanToValueConverter x:Key="FalseToZeroConverter">
+        <c:BooleanToValueConverter.ValueForFalse>
+            <system:Double>0.0</system:Double>
+        </c:BooleanToValueConverter.ValueForFalse>
+        <c:BooleanToValueConverter.ValueForTrue>
+            <system:Double>1.0</system:Double>
+        </c:BooleanToValueConverter.ValueForTrue>
+    </c:BooleanToValueConverter>
+    
+    <c:ZeroToValueConverter
+        x:Key="ZeroToTrueConverter"
+        ValueForNotZero="{StaticResource FalseBoolean}"
+        ValueForZero="{StaticResource TrueBoolean}"
+        />
+    
+    <c:ZeroToValueConverter
+        x:Key="ZeroToFalseConverter"
+        ValueForNotZero="{StaticResource TrueBoolean}"
+        ValueForZero="{StaticResource FalseBoolean}"
+        />
+
+    <c:ZeroToValueConverter
+        x:Key="ZeroToCollapsedConverter"
+        ValueForNotZero="{StaticResource VisibleVisibility}"
+        ValueForZero="{StaticResource CollapsedVisibility}"
+        />
+
+    <c:ZeroToValueConverter
+        x:Key="ZeroToVisibleConverter"
+        ValueForNotZero="{StaticResource CollapsedVisibility}"
+        ValueForZero="{StaticResource VisibleVisibility}"
+        />
+
+    <c:BooleanToValueConverter
+        x:Key="TrueToCollapsedConverter"
+        ValueForFalse="{StaticResource VisibleVisibility}"
+        ValueForTrue="{StaticResource CollapsedVisibility}"
+        />
+
+    <c:BooleanToValueConverter
+        x:Key="TrueToVisibleConverter"
+        ValueForFalse="{StaticResource CollapsedVisibility}"
+        ValueForTrue="{StaticResource VisibleVisibility}"
+        />
+
+    <c:StringLengthToValueConverter
+        x:Key="EmptyToCollapsedConverter"
+        ValueForEmpty="{StaticResource CollapsedVisibility}"
+        ValueForFilled="{StaticResource VisibleVisibility}"
+        />
+
+    <c:StringLengthToValueConverter
+        x:Key="EmptyToVisibleConverter"
+        ValueForEmpty="{StaticResource VisibleVisibility}"
+        ValueForFilled="{StaticResource CollapsedVisibility}"
+        />
+
+    <c:StringLengthToValueConverter
+        x:Key="EmptyToFalseConverter"
+        ValueForEmpty="{StaticResource FalseBoolean}"
+        ValueForFilled="{StaticResource TrueBoolean}"
+        />
+
+    <c:BooleanToValueConverter
+        x:Key="Invertor"
+        ValueForFalse="{StaticResource TrueBoolean}"
+        ValueForTrue="{StaticResource FalseBoolean}"
+        />
+
+    <c:NullToValueConverter
+        x:Key="NullToCollapsedConverter"
+        ValueForNotNull="{StaticResource VisibleVisibility}"
+        ValueForNull="{StaticResource CollapsedVisibility}"
+        />
+
+    <c:NullToValueConverter
+        x:Key="NullToVisibleConverter"
+        ValueForNotNull="{StaticResource CollapsedVisibility}"
+        ValueForNull="{StaticResource VisibleVisibility}"
+        />
+
+    <c:NullToValueConverter
+        x:Key="NullToFalseConverter"
+        ValueForNotNull="{StaticResource TrueBoolean}"
+        ValueForNull="{StaticResource FalseBoolean}"
+        />
+
+    <c:NullToValueConverter
+        x:Key="NullToTrueConverter"
+        ValueForNotNull="{StaticResource FalseBoolean}"
+        ValueForNull="{StaticResource TrueBoolean}"
+        />
+
+
+
+    <cc:PlayerRoleToValueConverter x:Key="IsAdminToVisibleConverter"
+        Player="{StaticResource CollapsedVisibility}"
+        Moderator="{StaticResource VisibleVisibility}"
+        Admin="{StaticResource CollapsedVisibility}"/>
+
+    <cc:PlayerRoleToValueConverter x:Key="IsAdminToCollapsedConverter"
+        Player="{StaticResource VisibleVisibility}"
+        Moderator="{StaticResource VisibleVisibility}"
+        Admin="{StaticResource CollapsedVisibility}"/>
+
+    <cc:PlayerRoleToValueConverter x:Key="IsModeratorToVisibleConverter"
+        Player="{StaticResource CollapsedVisibility}"
+        Moderator="{StaticResource VisibleVisibility}"
+        Admin="{StaticResource VisibleVisibility}"/>
+
+    <cc:PlayerRoleToValueConverter x:Key="IsModeratorToCollapsedConverter"
+        Player="{StaticResource VisibleVisibility}"
+        Moderator="{StaticResource CollapsedVisibility}"
+        Admin="{StaticResource CollapsedVisibility}"/>
+
+
+    <cc:PlayerRoleToValueConverter x:Key="RoleToColorPlayerToWhiteConverter">
+        <cc:PlayerRoleToValueConverter.Admin>
+            <SolidColorBrush Color="Red"/>
+        </cc:PlayerRoleToValueConverter.Admin>
+        <cc:PlayerRoleToValueConverter.Moderator>
+            <SolidColorBrush Color="LightGreen"/>
+        </cc:PlayerRoleToValueConverter.Moderator>
+        <cc:PlayerRoleToValueConverter.Player>
+            <SolidColorBrush Color="White"/>
+        </cc:PlayerRoleToValueConverter.Player>
+    </cc:PlayerRoleToValueConverter>
+
+    <cc:PlayerRoleToValueConverter x:Key="RoleToColorPlayerToGrayConverter">
+        <cc:PlayerRoleToValueConverter.Admin>
+            <SolidColorBrush Color="Red"/>
+        </cc:PlayerRoleToValueConverter.Admin>
+        <cc:PlayerRoleToValueConverter.Moderator>
+            <SolidColorBrush Color="LightGreen"/>
+        </cc:PlayerRoleToValueConverter.Moderator>
+        <cc:PlayerRoleToValueConverter.Player>
+            <SolidColorBrush Color="Gray"/>
+        </cc:PlayerRoleToValueConverter.Player>
+    </cc:PlayerRoleToValueConverter>
+
+    <cc:CountryNameToFlagUriConverter x:Key="CountryImageConverter" />
+    <cc:CardImageConverter x:Key="CardImageConverter"/>
+    <cc:ElementImageConverter x:Key="ElementImageConverter"/>
+    <cc:IsCreatureToValue x:Key="IsCreatureToVisible" ValueForTrue="{StaticResource VisibleVisibility}" ValueForFalse="{StaticResource CollapsedVisibility}"/>
+    <cc:IsCreatureToValue x:Key="IsCreatureToCollapsed" ValueForTrue="{StaticResource CollapsedVisibility}" ValueForFalse="{StaticResource VisibleVisibility}"/>
+
+    <cc:PlayerStatusToForegroundConverter x:Name="PlayerStatusToForegroundConverter"/>
+
+    <cc:IdToPhotoUrlConverter x:Key="IdToThumbnailConverter" IsLarge="False"/>
+    <cc:IdToPhotoUrlConverter x:Key="IdToPhotoConverter" IsLarge="True"/>
+
+
+
+    <c:BooleanToValueConverter
+        x:Key="IsBannedToStringConverter"
+        ValueForFalse="Ban"
+        ValueForTrue="Unban"
+        />
+    <c:BooleanToValueConverter
+        x:Key="IsDevoicedToStringConverter"
+        ValueForFalse="Devoice"
+        ValueForTrue="Bring voice back"
+        />
+
+</ResourceDictionary>

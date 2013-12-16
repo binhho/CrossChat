@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Abo.Client.WP.Silverlight.Views.InputTextView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Abo.Client.WP.Silverlight.Seedwork.Controls"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="#94000000" IsHitTestVisible="True" MinHeight="480" MinWidth="480">
+        <Grid Background="#454545" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Введите причину бана" TextWrapping="Wrap" Margin="24" Foreground="White" FontSize="22"/>
+            <controls:ValidatableTextBox HorizontalAlignment="Stretch" Grid.Row="1" Margin="12,12,12,20" Text="{Binding Text, Mode=TwoWay}" EnterCommand="{Binding SubmitCommand}" Validator="{Binding Validator}"/>
+        </Grid>
+    </Grid>
+</UserControl>
